@@ -25,6 +25,9 @@ export default async function Page() {
         ))}
         <AddWeatherButton />
       </div>
+      <div className="h-10 absolute bottom-0 text-white left-1/2 -translate-x-1/2">
+        <p>Using <a href="https://geocoding-api.open-meteo.com/v1/" target="_blank" rel="noopener noreferrer">OpenMeteo</a> API with Next.JS</p>
+      </div>
     </>
   )
 }
