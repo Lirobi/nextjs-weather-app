@@ -49,9 +49,10 @@ const AddWeatherButton = () => {
             })
         });
         if (!response.ok) {
+            const data = await response.json();
             Popup({
                 alertLevel: AlertLevel.ERROR,
-                message: 'Failed to add location: ' + location,
+                message: data.error,
                 duration: 3000
             })
             setIsAdding(false);

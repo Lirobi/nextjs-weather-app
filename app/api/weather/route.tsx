@@ -120,7 +120,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
     if (process.env.NODE_ENV === 'production') {
-        return addCORSHeaders(NextResponse.json({ error: 'POST requests are not allowed in production' }, { status: 403 }))
+        return addCORSHeaders(NextResponse.json({ error: 'You are not allowed to do that' }, { status: 403 }))
     }
 
     try {
@@ -273,7 +273,7 @@ export async function POST(request: Request) {
 
 export async function DELETE(request: Request) {
     if (process.env.NODE_ENV === 'production') {
-        return addCORSHeaders(NextResponse.json({ error: 'DELETE requests are not allowed in production' }, { status: 403 }))
+        return addCORSHeaders(NextResponse.json({ error: 'You are not allowed to do that' }, { status: 403 }))
     }
 
     try {

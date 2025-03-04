@@ -1,5 +1,7 @@
 'use client'
 import React from 'react'
+import Popup from '@/app/utils/Popup'
+import AlertLevel from '@/app/lib/definitions/AlertLevel'
 
 interface WeatherCardProps {
     id: number,
@@ -21,6 +23,14 @@ const WeatherCard = (props: WeatherCardProps) => {
                 id: props.id,
             })
         })
+        if (!response.ok) {
+            const data = await response.json();
+            Popup({
+                alertLevel: AlertLevel.ERROR,
+                message: data.error,
+                duration: 3000
+            })
+        }
     }
 
     const weatherIconURL = process.env.NEXT_PUBLIC_URL + `/media/images/static/${props.weatherType}.svg`
